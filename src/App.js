@@ -4,8 +4,8 @@ import UserView from "./Components/UserView";
 import "./App.css";
 
 function App() {
-  const [isAdmin, setIsAdmin] = useState(true);
-  const [projects, setProjects] = useState([]);
+  const [isAdmin, setIsAdmin] = useState(true); //Like isAdmin boolean
+  const [projects, setProjects] = useState([]); //Like allProjects array
 
   const handleAddProject = (newProject) => {
     setProjects((state) => [...state, newProject]);
@@ -20,6 +20,7 @@ function App() {
       <button onClick={() => handleChangeView(true)}>ADMIN</button>
       <button onClick={() => handleChangeView(false)}>USER</button>
       <AdminView addProject={(newProject) => handleAddProject(newProject)} />
+      <UserView />
     </div>
   );
 }
