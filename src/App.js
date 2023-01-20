@@ -20,18 +20,20 @@ function App() {
   //Is render() not required? No, because the app component is a function? Why tho? Should this component be a class or a function?
   return (
     <div>
-      <button
-        className="btn btn-warning"
-        onClick={() => handleChangeView(true)}
-      >
-        ADMIN
-      </button>
-      <button
-        className="btn btn-warning"
-        onClick={() => handleChangeView(false)}
-      >
-        USER
-      </button>
+      <nav>
+        <button
+          className="btn btn-warning"
+          onClick={() => handleChangeView(true)}
+        >
+          ADMIN
+        </button>
+        <button
+          className="btn btn-warning"
+          onClick={() => handleChangeView(false)}
+        >
+          USER
+        </button>
+      </nav>
       {isAdmin ? (
         <AdminView addProject={(newProject) => handleAddProject(newProject)} />
       ) : (
