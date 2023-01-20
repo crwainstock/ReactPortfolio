@@ -21,18 +21,36 @@ function App() {
   return (
     <div>
       <nav>
-        <button
-          className="btn btn-warning"
-          onClick={() => handleChangeView(true)}
-        >
-          ADMIN
-        </button>
-        <button
-          className="btn btn-warning"
-          onClick={() => handleChangeView(false)}
-        >
-          USER
-        </button>
+        {isAdmin ? (
+          <button
+            className="btn btn-danger"
+            onClick={() => handleChangeView(true)}
+          >
+            ADMIN
+          </button>
+        ) : (
+          <button
+            className="btn btn-warning"
+            onClick={() => handleChangeView(true)}
+          >
+            ADMIN
+          </button>
+        )}
+        {isAdmin ? (
+          <button
+            className="btn btn-warning"
+            onClick={() => handleChangeView(false)}
+          >
+            USER
+          </button>
+        ) : (
+          <button
+            className="btn btn-danger"
+            onClick={() => handleChangeView(false)}
+          >
+            USER
+          </button>
+        )}
       </nav>
       {isAdmin ? (
         <AdminView addProject={(newProject) => handleAddProject(newProject)} />
