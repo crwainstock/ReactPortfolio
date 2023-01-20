@@ -26,6 +26,7 @@ function AdminView() {
 
   return (
     <div className="container">
+      <h1>Add a Project</h1>
       <form onSubmit={handleSubmit}>
         <div className="form-row">
           <div className="form-group col-md-6">
@@ -58,7 +59,7 @@ function AdminView() {
             ></textarea>
           </div>
         </div>
-        <button>Submit</button>
+        <button className="btn btn-success">Submit</button>
       </form>
     </div>
   );

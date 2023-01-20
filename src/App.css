@@ -18,3 +18,11 @@ h3 {
 h1 {
   text-align: center;
 }
+form {
+  max-width: 80%;
+  margin: 0 auto;
+}
+form .btn {
+  display: block;
+  margin: 0 auto;
+}
