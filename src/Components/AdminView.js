@@ -25,16 +25,39 @@ function AdminView() {
   };
 
   return (
-    <div>
+    <div className="container">
       <form onSubmit={handleSubmit}>
-        <label>
-          Project Title
-          <input
-            name="title"
-            value={project.title}
-            onChange={(e) => handleInputChange(e)}
-          />
-        </label>
+        <div className="form-row">
+          <div className="form-group col-md-6">
+            <label for="title">Project Title</label>
+            <input
+              name="title"
+              className="form-control"
+              placeholder="Project Title"
+              value={project.title}
+              onChange={(e) => handleInputChange(e)}
+            />
+          </div>
+          <div className="form-group col-md-6">
+            <label for="image">Image URL</label>
+            <input
+              name="image"
+              className="form-control"
+              placeholder="https://www..."
+              value={project.image}
+              onChange={(e) => handleInputChange(e)}
+            />
+          </div>
+          <div className="form-group">
+            <label for="description">Project Description</label>
+            <textarea
+              className="form-control"
+              id="projectDescription"
+              rows="3"
+              placeholder="Describe your project here."
+            ></textarea>
+          </div>
+        </div>
         <button>Submit</button>
       </form>
     </div>

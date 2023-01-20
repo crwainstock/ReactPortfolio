@@ -52,13 +52,15 @@ function App() {
           </button>
         )}
       </nav>
-      {isAdmin ? (
-        <AdminView addProject={(newProject) => handleAddProject(newProject)} />
-      ) : (
-        <UserView />
-      )}
-
-      {/* Showing both views all the time. Not connected to button events. */}
+      <main>
+        {isAdmin ? (
+          <AdminView
+            addProject={(newProject) => handleAddProject(newProject)}
+          />
+        ) : (
+          <UserView />
+        )}
+      </main>
     </div>
   );
 }
