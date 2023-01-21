@@ -21,11 +21,7 @@ function UserView({ allProjects, featuredSelectedCB }) {
           <div id="featured">
             <h3>Featured Project</h3>
             <h4>{featured.title}</h4>
-            <img
-              src={featured.image}
-              alt="featured project"
-              className="rounded"
-            />
+            <img src={featured.image} alt="featured project" />
             <p>{featured.description}</p>
           </div>
         )}
@@ -33,7 +29,7 @@ function UserView({ allProjects, featuredSelectedCB }) {
       <div id="container-grid" className="container">
         <div id="project-grid" className="row">
           {allProjects.map((project) => (
-            <div id="project" key={project.id} className="col-sm-3">
+            <div id="project" key={project.id} className="col-sm-3 ">
               <h4 id={project.id}>{project.title}</h4>
               <img
                 src={project.image}
