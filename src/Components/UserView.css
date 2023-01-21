@@ -3,6 +3,7 @@
 
 #featured img {
   max-width: 30%;
+  border-radius: 5px;
 }
 #project img {
   max-width: 100%;
@@ -10,7 +11,6 @@
   border-radius: 5px;
   overflow: hidden;
 }
-
 #project-grid {
   margin-bottom: 2rem;
 }
