@@ -26,6 +26,7 @@ function UserView({ allProjects, featuredSelectedCB }) {
               alt="featured project"
               className="rounded"
             />
+            <p>{featured.description}</p>
           </div>
         )}
       </div>
