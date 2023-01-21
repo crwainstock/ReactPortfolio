@@ -7,17 +7,17 @@ import "./App.css";
 
 function App() {
   const [isAdmin, setIsAdmin] = useState(true); //Like isAdmin boolean
-  const [projects, setProjects] = useState([]); //Like allProjects array
+  const [allProjects, setProjects] = useState([]); //Like allProjects array
 
   const handleAddProject = (newProject) => {
     setProjects((state) => [...state, newProject]);
   };
+  //Where should I push the newProject to the allProjects?
 
   const handleChangeView = (isAdmin) => {
     setIsAdmin(isAdmin);
-    //I don't get how this changes the isAdmin state. Does it? How can I conditionally render the view?
   };
-  //Is render() not required? No, because the app component is a function? Why tho? Should this component be a class or a function?
+
   return (
     <div>
       <nav>

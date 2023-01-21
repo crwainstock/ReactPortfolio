@@ -2,9 +2,10 @@ import React, { useState } from "react";
 
 function AdminView() {
   const [project, setProject] = useState({
-    url: "",
+    image: "",
     title: "",
     description: "",
+    id: 0,
   });
 
   const handleInputChange = (event) => {

@@ -1,9 +1,12 @@
 import React from "react";
+import { useState } from "react";
 
-function UserView() {
+function UserView({ allProjects }) {
+  const [featured, setFeatured] = useState({});
+
   return (
     <div>
-      <h1>User View</h1>
+      <h1>Crystal's Projects</h1>
     </div>
   );
 }
