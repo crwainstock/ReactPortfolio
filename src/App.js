@@ -2,17 +2,17 @@ import React, { useState } from "react";
 import AdminView from "./Components/AdminView";
 import UserView from "./Components/UserView";
 import "./App.css";
+import MyProjects from "./Components/MyProjects";
 
 //Import default data here eventually
 
 function App() {
   const [isAdmin, setIsAdmin] = useState(true); //Like isAdmin boolean
-  const [allProjects, setProjects] = useState([]); //Like allProjects array
+  const [allProjects, setProjects] = useState(MyProjects); //Like allProjects array
 
   const handleAddProject = (newProject) => {
     setProjects((state) => [...state, newProject]);
   };
-  //Where should I push the newProject to the allProjects?
 
   const handleChangeView = (isAdmin) => {
     setIsAdmin(isAdmin);
@@ -58,7 +58,10 @@ function App() {
             addProject={(newProject) => handleAddProject(newProject)}
           />
         ) : (
-          <UserView />
+          <UserView
+            allProjects={allProjects}
+            // featuredSelectedCB={featuredSelected}
+          />
         )}
       </main>
     </div>
