@@ -23,3 +23,36 @@ export default [
     description: "This cat has had a day. Don't mess with him.",
   },
 ];
+
+//How I originally wrote the code for conditionally rendering the button classes.
+// {
+//   isAdmin ? (
+//     <button className="btn btn-danger" onClick={() => handleChangeView(true)}>
+//       ADMIN
+//     </button>
+//   ) : (
+//     <button
+//       className="btn btn-warning"
+//       onClick={() => handleChangeView(true)}
+//     >
+//       ADMIN
+//     </button>
+//   );
+// }
+// {
+//   isAdmin ? (
+//     <button
+//       className="btn btn-warning"
+//       onClick={() => handleChangeView(false)}
+//     >
+//       USER
+//     </button>
+//   ) : (
+//     <button
+//       className="btn btn-danger"
+//       onClick={() => handleChangeView(false)}
+//     >
+//       USER
+//     </button>
+//   );
+// }

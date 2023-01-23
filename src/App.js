@@ -10,51 +10,32 @@ function App() {
   const [isAdmin, setIsAdmin] = useState(true); //Like isAdmin boolean
   const [allProjects, setProjects] = useState(MyProjects); //Like allProjects array
 
+  //Adds new project to allProjects array
   const handleAddProject = (newProject) => {
-    setProjects((state) => [...state, newProject]);
-  };
-
-  const handleChangeView = (isAdmin) => {
-    setIsAdmin(isAdmin);
+    let newArray = [...allProjects, newProject];
+    setProjects(newArray);
   };
 
   return (
     <div>
       <nav>
-        {isAdmin ? (
-          <button
-            className="btn btn-danger"
-            onClick={() => handleChangeView(true)}
-          >
-            ADMIN
-          </button>
-        ) : (
-          <button
-            className="btn btn-warning"
-            onClick={() => handleChangeView(true)}
-          >
-            ADMIN
-          </button>
-        )}
-        {isAdmin ? (
-          <button
-            className="btn btn-warning"
-            onClick={() => handleChangeView(false)}
-          >
-            USER
-          </button>
-        ) : (
-          <button
-            className="btn btn-danger"
-            onClick={() => handleChangeView(false)}
-          >
-            USER
-          </button>
-        )}
+        <button
+          className={isAdmin ? "btn btn-danger" : "btn btn-warning"}
+          onClick={() => setIsAdmin(true)}
+        >
+          Admin
+        </button>
+        <button
+          className={!isAdmin ? "btn btn-danger" : "btn btn-warning"}
+          onClick={() => setIsAdmin(false)}
+        >
+          User
+        </button>
       </nav>
       <main>
         {isAdmin ? (
           <AdminView
+            addProjectCB={setProjects} //Omg. losing track of what I'm doing. This isn't done yet.
             addProject={(newProject) => handleAddProject(newProject)}
           />
         ) : (

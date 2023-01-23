@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 
-function AdminView() {
-  const [project, setProject] = useState({
+function AdminView({ addProjectCB }) {
+  const [newProject, setProject] = useState({
     image: "",
     title: "",
     description: "",
-    id: 0,
   });
+
+  const [id, setId] = useState(0);
 
   const handleInputChange = (event) => {
     const value = event.target.value;
@@ -19,8 +20,20 @@ function AdminView() {
   };
 
   const handleSubmit = (e) => {
+    newProject.id = id;
+    setId((id) => id + 1);
     e.preventDefault();
     console.log("form button clicked!");
+    console.log(newProject);
+
+    addProjectCB(newProject);
+
+    setProject({
+      image: "",
+      title: "",
+      description: "",
+    });
+
     // pass data back up to parent using props.addProject();
     // don't forget to accept the props in the arguments of the function AdminView
   };
@@ -36,7 +49,7 @@ function AdminView() {
               name="title"
               className="form-control"
               placeholder="Project Title"
-              value={project.title}
+              value={newProject.title}
               onChange={(e) => handleInputChange(e)}
             />
           </div>
@@ -46,7 +59,7 @@ function AdminView() {
               name="image"
               className="form-control"
               placeholder="https://www..."
-              value={project.image}
+              value={newProject.image}
               onChange={(e) => handleInputChange(e)}
             />
           </div>
@@ -54,7 +67,9 @@ function AdminView() {
             <label for="description">Project Description</label>
             <textarea
               className="form-control"
-              id="projectDescription"
+              name="description"
+              value={newProject.description}
+              onChange={(e) => handleInputChange(e)} //This seems to update the array with each keystroke...not what I want.
               rows="3"
               placeholder="Describe your project here."
             ></textarea>
