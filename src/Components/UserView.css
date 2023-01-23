@@ -1,16 +1,31 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css");
 /* Import Bootstrap CDN */
-
 #featured img {
   display: block;
   margin: 0 auto;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
   max-width: 40%;
   border-radius: 5px;
-  /* How can I center the image? */
+}
+#featured h3 {
+  margin-bottom: 2rem;
+  max-width: 75%;
+  margin: 0 auto;
+  border-radius: 5px;
+  background-color: #eeefa8;
+}
+#featured h4 {
+  max-width: 85%;
+  margin: 0 auto;
+  padding: 1rem;
+  border-radius: 5px;
+  background-color: #e3e902;
 }
 #featured p {
   max-width: 75%;
   margin: 0 auto;
+  margin-bottom: 2rem;
 }
 
 #project img {

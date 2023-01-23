@@ -19,6 +19,13 @@ h4,
 h5 {
   text-align: center;
 }
+h1 {
+  background-color: #fffed5;
+  padding: 1rem;
+  margin: 0 auto;
+  max-width: 65%;
+  border-radius: 5px;
+}
 form {
   max-width: 80%;
   margin: 0 auto;
