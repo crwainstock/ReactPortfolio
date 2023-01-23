@@ -9,7 +9,7 @@ function UserView({ allProjects, featuredSelectedCB }) {
     console.log("clicked");
     let selected = allProjects.find((item) => item.id === id);
     setFeatured(selected);
-    featuredSelectedCB();
+    // featuredSelectedCB();
     //This function is defined in the App.js parent -- called here to communicate back up to parent
   }
 
