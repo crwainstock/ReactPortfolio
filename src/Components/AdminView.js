@@ -7,7 +7,7 @@ function AdminView({ addProjectCB }) {
     description: "",
   });
 
-  const [id, setId] = useState(0);
+  const [id, setId] = useState(5);
 
   const handleInputChange = (event) => {
     const value = event.target.value;

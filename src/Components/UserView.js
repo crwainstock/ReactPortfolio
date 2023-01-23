@@ -22,7 +22,7 @@ function UserView({ allProjects, featuredSelectedCB }) {
             <h3>Featured Project</h3>
             <h4>{featured.title}</h4>
             <img src={featured.image} alt="featured project" />
-            <p>{featured.description}</p>
+            <p className="text-justify">{featured.description}</p>
           </div>
         )}
       </div>
