@@ -34,7 +34,7 @@ function UserView({ allProjects, featuredSelectedCB }) {
               <img
                 src={project.image}
                 onClick={() => handleClick(project.id)}
-                alt="project"
+                alt="singleProject"
                 className="img-fluid rounded"
               />
             </div>

@@ -35,8 +35,7 @@ function App() {
       <main>
         {isAdmin ? (
           <AdminView
-            addProjectCB={setProjects} //Omg. losing track of what I'm doing. This isn't done yet.
-            addProject={(newProject) => handleAddProject(newProject)}
+            addProjectCB={handleAddProject} //Omg. losing track of what I'm doing. This isn't done yet.
           />
         ) : (
           <UserView
