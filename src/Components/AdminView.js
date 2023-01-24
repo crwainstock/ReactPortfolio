@@ -40,7 +40,7 @@ function AdminView({ addProjectCB }) {
 
   return (
     <div className="container">
-      <h1>Add a Project</h1>
+      <h1 id="addProjectHeader">Add a Project</h1>
       <form onSubmit={handleSubmit}>
         <div className="form-row">
           <div className="form-group col-md-6">

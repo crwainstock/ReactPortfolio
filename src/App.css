@@ -34,3 +34,6 @@ form .btn {
   display: block;
   margin: 0 auto;
 }
+#addProjectHeader {
+  margin-bottom: 2rem;
+}
