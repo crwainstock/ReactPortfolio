@@ -4,6 +4,23 @@ import "./UserView.css";
 
 function UserView({ allProjects, featuredSelectedCB }) {
   const [featured, setFeatured] = useState({});
+  const [searchTerm, setSearchTerm] = useState({
+    query: "",
+    list: [],
+  }); //create new searchTerm state
+
+  const handleSearch = (e) => {
+    const results = allProjects.filter((project) => {
+      if (e.target.value === "") return allProjects;
+      return allProjects.title
+        .toLowerCase()
+        .includes(e.target.value.toLowerCase());
+    });
+    setSearchTerm({
+      query: e.target.value,
+      list: results,
+    });
+  };
 
   function handleClick(id) {
     console.log("clicked");
@@ -27,6 +44,7 @@ function UserView({ allProjects, featuredSelectedCB }) {
         )}
       </div>
       <div id="container-grid" className="container">
+        {/* SEARCH BAR */}
         <nav class="navbar navbar-light bg-light">
           <form class="form-block">
             <input
