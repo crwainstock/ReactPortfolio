@@ -10,6 +10,7 @@ function UserView({ allProjects }) {
   }); //create new searchTerm state
   //Function to handle searching -- filter allProjects based on value input in search bar
   const handleSearch = (e) => {
+    e.preventDefault();
     const results = allProjects.filter((project) => {
       if (e.target.value === "") return allProjects;
       return allProjects.title
@@ -46,17 +47,17 @@ function UserView({ allProjects }) {
       </div>
       <div id="container-grid" className="container">
         {/* SEARCH BAR */}
-        <nav class="navbar navbar-light bg-light">
-          <form class="form-block">
+        <nav className="navbar navbar-light bg-light">
+          <form className="form-block">
             <input
-              class="form-control mr-sm-2"
+              className="form-control mr-sm-2"
               type="search"
               placeholder="Search"
               aria-label="Search"
               onChange={handleSearch}
               value={searchTerm.query} //Not sure if this is right.
             />
-            <button class="btn btn-light" type="submit">
+            <button className="btn btn-light" type="submit">
               Search
             </button>
           </form>
