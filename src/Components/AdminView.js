@@ -44,7 +44,7 @@ function AdminView({ addProjectCB }) {
       <form onSubmit={handleSubmit}>
         <div className="form-row">
           <div className="form-group col-md-6">
-            <label for="title">Project Title</label>
+            <label htmlFor="title">Project Title</label>
             <input
               name="title"
               className="form-control"
@@ -54,7 +54,7 @@ function AdminView({ addProjectCB }) {
             />
           </div>
           <div className="form-group col-md-6">
-            <label for="image">Image URL</label>
+            <label htmlFor="image">Image URL</label>
             <input
               name="image"
               className="form-control"
@@ -64,7 +64,7 @@ function AdminView({ addProjectCB }) {
             />
           </div>
           <div className="form-group">
-            <label for="description">Project Description</label>
+            <label htmlFor="description">Project Description</label>
             <textarea
               className="form-control"
               name="description"

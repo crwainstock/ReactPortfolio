@@ -70,6 +70,7 @@ function UserView({ allProjects }) {
         - If search bar has text, return all projects with titles that include that letter(s) --.toLowerCase to make it not case sensitive
          */}
         <div id="project-grid" className="row">
+          {/* First part seems to work -- shows all projects appropriately before search filter is used */}
           {searchTerm.query === ""
             ? allProjects.map((project) => (
                 <div id="project" key={project.id} className="col-sm-3 ">
@@ -82,9 +83,9 @@ function UserView({ allProjects }) {
                   />
                 </div>
               ))
-            : searchTerm.list.map((allProjects) => {
+            : searchTerm.list.map((project) => {
                 return (
-                  <div>
+                  <div key={project.id}>
                     {allProjects.map((project) => (
                       <div id="project" key={project.id} className="col-sm-3 ">
                         <h4 id={project.id}>{project.title}</h4>
