@@ -72,7 +72,7 @@ function UserView({ allProjects }) {
          */}
         <div id="project-grid" className="row">
           {/* First part seems to work -- shows all projects appropriately before search filter is used */}
-          {searchTerm.query === ""
+          {!searchTerm.query
             ? allProjects.map((project) => (
                 <div id="project" key={project.id} className="col-sm-3 ">
                   <h4 id={project.id}>{project.title}</h4>
