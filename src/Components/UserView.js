@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import "./UserView.css";
 
-function UserView({ allProjects, featuredSelectedCB }) {
+function UserView({ allProjects }) {
   const [featured, setFeatured] = useState({});
   const [searchTerm, setSearchTerm] = useState({
     query: "",
@@ -52,24 +52,44 @@ function UserView({ allProjects, featuredSelectedCB }) {
               type="search"
               placeholder="Search"
               aria-label="Search"
+              onChange={handleSearch}
+              value={searchTerm.query} //Not sure if this is right.
             />
             <button class="btn btn-light" type="submit">
               Search
             </button>
           </form>
         </nav>
+        {/* Having some problems with this part -- syntax stuff */}
         <div id="project-grid" className="row">
-          {allProjects.map((project) => (
-            <div id="project" key={project.id} className="col-sm-3 ">
-              <h4 id={project.id}>{project.title}</h4>
-              <img
-                src={project.image}
-                onClick={() => handleClick(project.id)}
-                alt="singleProject"
-                className="img-fluid rounded"
-              />
-            </div>
-          ))}
+          {searchTerm.query === ""
+            ? (<div>
+                    {allProjects.map((project) => (
+                      <div id="project" key={project.id} className="col-sm-3 ">
+                        <h4 id={project.id}>{project.title}</h4>
+                        <img
+                          src={project.image}
+                          onClick={() => handleClick(project.id)}
+                          alt="singleProject"
+                          className="img-fluid rounded"
+                        />
+                      </div>) : ({searchTerm.list.map((allProjects) => {
+                return (
+                  <div>
+                    {allProjects.map((project) => (
+                      <div id="project" key={project.id} className="col-sm-3 ">
+                        <h4 id={project.id}>{project.title}</h4>
+                        <img
+                          src={project.image}
+                          onClick={() => handleClick(project.id)}
+                          alt="singleProject"
+                          className="img-fluid rounded"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                );
+              })})
         </div>
       </div>
     </div>
