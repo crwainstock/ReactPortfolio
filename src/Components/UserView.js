@@ -60,7 +60,11 @@ function UserView({ allProjects }) {
             </button>
           </form>
         </nav>
-        {/* Having some problems with this part -- syntax stuff */}
+        {/* Having some problems with this part -- syntax stuff 
+        
+        - If search bar is empty, return allProjects as usual
+        - If search bar has text, return all projects with titles that include that letter(s) --.toLowerCase to make it not case sensitive
+        */}
         <div id="project-grid" className="row">
           {searchTerm.query === ""
             ? (<div>
