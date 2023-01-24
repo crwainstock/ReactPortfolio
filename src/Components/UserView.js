@@ -12,10 +12,13 @@ function UserView({ allProjects }) {
   const handleSearch = (e) => {
     e.preventDefault();
     const results = allProjects.filter((project) => {
-      if (e.target.value === "") return allProjects;
-      return allProjects.title
-        .toLowerCase()
-        .includes(e.target.value.toLowerCase());
+      if (e.target.value) {
+        return project.title
+          .toLowerCase()
+          .includes(e.target.value.toLowerCase());
+      } else {
+        return allProjects;
+      }
     });
     //Update state
     setSearchTerm({
@@ -55,18 +58,17 @@ function UserView({ allProjects }) {
               placeholder="Search"
               aria-label="Search"
               onChange={handleSearch}
-              value={searchTerm.query} //Not sure if this is right.
+              value={searchTerm.query}
             />
             <button className="btn btn-light" type="submit">
               Search
             </button>
           </form>
         </nav>
-        {/* Having some problems with this part -- syntax stuff 
-        
+        {/*             
         - If search bar is empty, return allProjects as usual (original code)
         - If search bar has text, return all projects with titles that include that letter(s) --.toLowerCase to make it not case sensitive
-        */}
+         */}
         <div id="project-grid" className="row">
           {searchTerm.query === ""
             ? allProjects.map((project) => (
