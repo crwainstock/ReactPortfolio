@@ -25,6 +25,7 @@ function UserView({ allProjects }) {
       query: e.target.value,
       list: results,
     });
+    console.log(searchTerm.list);
   };
 
   function handleClick(id) {
@@ -86,17 +87,15 @@ function UserView({ allProjects }) {
             : searchTerm.list.map((project) => {
                 return (
                   <div key={project.id}>
-                    {allProjects.map((project) => (
-                      <div id="project" key={project.id} className="col-sm-3 ">
-                        <h4 id={project.id}>{project.title}</h4>
-                        <img
-                          src={project.image}
-                          onClick={() => handleClick(project.id)}
-                          alt="singleProject"
-                          className="img-fluid rounded"
-                        />
-                      </div>
-                    ))}
+                    <div id="project" key={project.id} className="col-sm-3 ">
+                      <h4 id={project.id}>{project.title}</h4>
+                      <img
+                        src={project.image}
+                        onClick={() => handleClick(project.id)}
+                        alt="singleProject"
+                        className="img-fluid rounded"
+                      />
+                    </div>
                   </div>
                 );
               })}
