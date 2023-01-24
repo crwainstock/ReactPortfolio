@@ -61,9 +61,6 @@ function UserView({ allProjects }) {
               onChange={handleSearch}
               value={searchTerm.query}
             />
-            <button className="btn btn-light" type="submit">
-              Search
-            </button>
           </form>
         </nav>
         {/*             
