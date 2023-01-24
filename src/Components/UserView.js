@@ -36,6 +36,10 @@ function UserView({ allProjects }) {
     //This function is defined in the App.js parent -- called here to communicate back up to parent
   }
 
+  //This resource was really useful as a guide for implementing the search bar: https://www.makeuseof.com/react-search-bar-filters-data-create/
+  //I would like to render a message saying "No results found" if no projects match search. But I'm not sure how to do it.
+  //Possible resource: https://dev.to/samba_code/nested-ternary-statements-in-react-jsx-35kp
+
   return (
     <div>
       <h1>Crystal's Projects</h1>
