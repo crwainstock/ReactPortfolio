@@ -78,24 +78,25 @@ function UserView({ allProjects }) {
                           alt="singleProject"
                           className="img-fluid rounded"
                         />
-                      </div>) : ({searchTerm.list.map((allProjects) => {
-                return (
-                  <div>
-                    {allProjects.map((project) => (
-                      <div id="project" key={project.id} className="col-sm-3 ">
-                        <h4 id={project.id}>{project.title}</h4>
-                        <img
-                          src={project.image}
-                          onClick={() => handleClick(project.id)}
-                          alt="singleProject"
-                          className="img-fluid rounded"
-                        />
-                      </div>
-                    ))}
-                  </div>
-                );
-              })})
-        </div>
+                      </div>) 
+                      : ({searchTerm.list.map((allProjects) => {
+                        return (
+                        <div>
+                          {allProjects.map((project) => (
+                            <div id="project" key={project.id} className="col-sm-3 ">
+                              <h4 id={project.id}>{project.title}</h4>
+                              <img
+                              src={project.image}
+                              onClick={() => handleClick(project.id)}
+                              alt="singleProject"
+                              className="img-fluid rounded"
+                              />
+                            </div>
+                          ))}
+                        </div>
+                        );
+                      })})
+                </div>
       </div>
     </div>
   );
