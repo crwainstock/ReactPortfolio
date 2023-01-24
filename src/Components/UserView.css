@@ -35,6 +35,10 @@
   border-radius: 5px;
   overflow: hidden;
 }
+#project img:hover {
+  opacity: 0.5;
+  transition: 0.3s ease-in-out;
+}
 #project-grid {
   margin-bottom: 2rem;
 }
