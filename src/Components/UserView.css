@@ -1,5 +1,15 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css");
 /* Import Bootstrap CDN */
+
+h1 {
+  display: block;
+  background-color: #fffed5;
+  padding: 1rem;
+  margin: 0 auto;
+  max-width: 65%;
+  border-radius: 5px;
+}
+
 #featured img {
   display: block;
   margin: 0 auto;
@@ -40,5 +50,11 @@
   transition: 0.3s ease-in-out;
 }
 #project-grid {
+  margin-bottom: 2rem;
+}
+#container-grid {
+  margin-top: 2rem;
+}
+form input {
   margin-bottom: 2rem;
 }

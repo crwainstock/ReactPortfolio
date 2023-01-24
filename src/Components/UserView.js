@@ -27,6 +27,19 @@ function UserView({ allProjects, featuredSelectedCB }) {
         )}
       </div>
       <div id="container-grid" className="container">
+        <nav class="navbar navbar-light bg-light">
+          <form class="form-block">
+            <input
+              class="form-control mr-sm-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button class="btn btn-light" type="submit">
+              Search
+            </button>
+          </form>
+        </nav>
         <div id="project-grid" className="row">
           {allProjects.map((project) => (
             <div id="project" key={project.id} className="col-sm-3 ">
