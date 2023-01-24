@@ -8,7 +8,7 @@ function UserView({ allProjects }) {
     query: "",
     list: [],
   }); //create new searchTerm state
-
+  //Function to handle searching -- filter allProjects based on value input in search bar
   const handleSearch = (e) => {
     const results = allProjects.filter((project) => {
       if (e.target.value === "") return allProjects;
@@ -16,6 +16,7 @@ function UserView({ allProjects }) {
         .toLowerCase()
         .includes(e.target.value.toLowerCase());
     });
+    //Update state
     setSearchTerm({
       query: e.target.value,
       list: results,
@@ -62,7 +63,7 @@ function UserView({ allProjects }) {
         </nav>
         {/* Having some problems with this part -- syntax stuff 
         
-        - If search bar is empty, return allProjects as usual
+        - If search bar is empty, return allProjects as usual (original code)
         - If search bar has text, return all projects with titles that include that letter(s) --.toLowerCase to make it not case sensitive
         */}
         <div id="project-grid" className="row">
