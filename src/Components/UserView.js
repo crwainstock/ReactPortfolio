@@ -4,29 +4,7 @@ import "./UserView.css";
 
 function UserView({ allProjects }) {
   const [featured, setFeatured] = useState({});
-  const [searchTerm, setSearchTerm] = useState({
-    query: "",
-    list: [],
-  }); //create new searchTerm state
-  //Function to handle searching -- filter allProjects based on value input in search bar
-  const handleSearch = (e) => {
-    e.preventDefault();
-    const results = allProjects.filter((project) => {
-      if (e.target.value) {
-        return project.title
-          .toLowerCase()
-          .includes(e.target.value.toLowerCase());
-      } else {
-        return allProjects;
-      }
-    });
-    //Update state
-    setSearchTerm({
-      query: e.target.value,
-      list: results,
-    });
-    console.log(searchTerm.list);
-  };
+  const [searchTerm, setSearchTerm] = useState("");
 
   function handleClick(id) {
     console.log("clicked");
@@ -62,8 +40,8 @@ function UserView({ allProjects }) {
               type="search"
               placeholder="Search"
               aria-label="Search"
-              onChange={handleSearch}
-              value={searchTerm.query}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              value={searchTerm}
             />
           </form>
         </nav>
@@ -73,33 +51,22 @@ function UserView({ allProjects }) {
          */}
         <div id="project-grid" className="row">
           {/* First part seems to work -- shows all projects appropriately before search filter is used */}
-          {!searchTerm.query
-            ? allProjects.map((project) => (
-                <div id="project" key={project.id} className="col-sm-3 ">
-                  <h4 id={project.id}>{project.title}</h4>
-                  <img
-                    src={project.image}
-                    onClick={() => handleClick(project.id)}
-                    alt="singleProject"
-                    className="img-fluid rounded"
-                  />
-                </div>
-              ))
-            : searchTerm.list.map((project) => {
-                return (
-                  <div key={project.id}>
-                    <div id="project" key={project.id} className="col-sm-3 ">
-                      <h4 id={project.id}>{project.title}</h4>
-                      <img
-                        src={project.image}
-                        onClick={() => handleClick(project.id)}
-                        alt="singleProject"
-                        className="img-fluid rounded"
-                      />
-                    </div>
-                  </div>
-                );
-              })}
+          {/* This part can be simplified with .filter before .map in the same thing, no if/else needed */}
+
+          {/* Not showing any projects correctly...? */}
+          {allProjects
+            .filter((project) => project.title.includes(searchTerm))
+            .map((project) => (
+              <div id="project" key={project.id} className="col-sm-3 ">
+                <h4 id={project.id}>{project.title}</h4>
+                <img
+                  src={project.image}
+                  onClick={() => handleClick(project.id)}
+                  alt="singleProject"
+                  className="img-fluid rounded"
+                />
+              </div>
+            ))}
         </div>
       </div>
     </div>
