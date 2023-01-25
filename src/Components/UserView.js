@@ -55,7 +55,9 @@ function UserView({ allProjects }) {
 
           {/* Not showing any projects correctly...? */}
           {allProjects
-            .filter((project) => project.title.includes(searchTerm))
+            .filter((project) =>
+              project.title.toLowerCase().includes(searchTerm.toLowerCase())
+            )
             .map((project) => (
               <div id="project" key={project.id} className="col-sm-3 ">
                 <h4 id={project.id}>{project.title}</h4>
