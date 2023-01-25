@@ -50,10 +50,6 @@ function UserView({ allProjects }) {
         - If search bar has text, return all projects with titles that include that letter(s) --.toLowerCase to make it not case sensitive
          */}
         <div id="project-grid" className="row">
-          {/* First part seems to work -- shows all projects appropriately before search filter is used */}
-          {/* This part can be simplified with .filter before .map in the same thing, no if/else needed */}
-
-          {/* Not showing any projects correctly...? */}
           {allProjects
             .filter((project) =>
               project.title.toLowerCase().includes(searchTerm.toLowerCase())
