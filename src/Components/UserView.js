@@ -10,13 +10,16 @@ function UserView({ allProjects }) {
     console.log("clicked");
     let selected = allProjects.find((item) => item.id === id);
     setFeatured(selected);
-    // featuredSelectedCB();
-    //This function is defined in the App.js parent -- called here to communicate back up to parent
   }
 
   //This resource was really useful as a guide for implementing the search bar: https://www.makeuseof.com/react-search-bar-filters-data-create/
   //I would like to render a message saying "No results found" if no projects match search. But I'm not sure how to do it.
   //Possible resource: https://dev.to/samba_code/nested-ternary-statements-in-react-jsx-35kp
+  //Search bar code simplified, original version lives in extra.js in components folder
+
+  const filteredArray = allProjects.filter((project) =>
+    project.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <div>
@@ -50,11 +53,10 @@ function UserView({ allProjects }) {
         - If search bar has text, return all projects with titles that include that letter(s) --.toLowerCase to make it not case sensitive
          */}
         <div id="project-grid" className="row">
-          {allProjects
-            .filter((project) =>
-              project.title.toLowerCase().includes(searchTerm.toLowerCase())
-            )
-            .map((project) => (
+          {filteredArray.length === 0 ? (
+            <h3>No results found.</h3>
+          ) : (
+            filteredArray.map((project) => (
               <div id="project" key={project.id} className="col-sm-3 ">
                 <h4 id={project.id}>{project.title}</h4>
                 <img
@@ -64,7 +66,8 @@ function UserView({ allProjects }) {
                   className="img-fluid rounded"
                 />
               </div>
-            ))}
+            ))
+          )}
         </div>
       </div>
     </div>
